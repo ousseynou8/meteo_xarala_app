@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useState } from "react";
+import "./styles.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [data, setData] = useState({});
+    const [location, setLocation] = useState('');
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=16eb603ac7d5549bab9405c7a98a6ea9`;
+
+
+
+    const fetchWeather = async (event) => {
+        event.preventDefault();
+        
+
+
+        axios.get(url)
+        .then((response) => {
+            setData(response.data);
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error);
+        })
+        setLocation('');
+       
+       
+    }
+
+    return (
+        <div className="container pt-5" >
+            <div className="row" >
+                <div className="col-sm-6" >
+                    <h1 className="display-5" > Application Meteo </h1>
+                    <form className="d-flex mt-4" >
+                        <input
+                            value={location}
+                            onChange={event => setLocation(event.target.value)}
+
+                            type="text"
+                            className="form-control me-2"
+                            placeholder="Entrez le nom d'une ville" /
+                        >
+                        <button
+                            className="btn btn-danger"
+                            onClick={fetchWeather}
+                            type="submit">Envoyer</button>
+                    </form> </div>
+                <div className="col-sm-6 text-center">
+  
+
+
+                    <p> {data.name}
+                  
+                    {data.sys ? <span className="badge bg-warning ms-2">
+                        {data.sys.country}
+                    </span> : null}
+  </p>
+
+
+                    {data.main ? <h1>{data.main.temp}  °C</h1> : null}
+
+  {data.weather ? <p>{data.weather[0].icon}</p> : null}
+
+                    {data.weather ? <p>{data.weather[0].description}</p> : null}
+                    </div>
+
+ 
+ 
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
