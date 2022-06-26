@@ -29,7 +29,7 @@ function App() {
     return (
         <div className="container pt-5" >
             <div className="row" >
-                <div className="col-sm-6" >
+                <div className="col-sm-6  " >
                     <h1 className="display-5" > Application Meteo </h1>
                     <form className="d-flex mt-4" >
                         <input
@@ -45,7 +45,7 @@ function App() {
                             onClick={fetchWeather}
                             type="submit">Envoyer</button>
                     </form> </div>
-                <div className="col-sm-6 text-center">
+                <div className="col-sm-6 pt-3 text-center">
   
 
 
