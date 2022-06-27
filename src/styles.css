@@ -7,7 +7,8 @@
     
     body {
         color: white;
-        min-height: 100vh;
+        height: 100%;
+        min-height: 700px;
         background: url('./images/photo-1611501279711-670b0d0455cb.avif') no-repeat;
         object-fit: cover;
         background-size: cover;
