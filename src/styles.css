@@ -7,8 +7,7 @@
     
     body {
         color: white;
-        height: 100%;
-        min-height: 700px;
+        min-height: 100vh;
         background: url('./images/photo-1611501279711-670b0d0455cb.avif') no-repeat;
         object-fit: cover;
         background-size: cover;
@@ -17,7 +16,7 @@
     
     .test {
         position: fixed;
-        bottom: 5rem;
+        bottom: 0;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
