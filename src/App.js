@@ -70,7 +70,7 @@ function App() {
           {data.weather ?
           
 
-            <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt=""/>
+            <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`} alt=""/>
           
          
           
